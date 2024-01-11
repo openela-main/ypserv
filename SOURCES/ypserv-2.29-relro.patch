@@ -1,0 +1,48 @@
+diff -up ./rpc.yppasswdd/Makefile.am.relro ./rpc.yppasswdd/Makefile.am
+--- ./rpc.yppasswdd/Makefile.am.relro	2013-04-11 11:25:34.000000000 +0200
++++ ./rpc.yppasswdd/Makefile.am	2013-05-06 18:48:10.888711995 +0200
+@@ -24,6 +24,8 @@ sbin_PROGRAMS = rpc.yppasswdd
+ 
+ rpc_yppasswdd_SOURCES = update.c yppasswd_xdr.c yppasswdd.c
+ 
++rpc_yppasswdd_LDFLAGS = -Wl,-z,relro,-z,now
++
+ rpc_yppasswdd_LDADD =  @PIE_LDFLAGS@ $(top_builddir)/lib/libyp.a $(LIBDBM) $(LIBCRYPT) $(LIBSYSTEMD_DAEMON)
+ rpc_yppasswdd_CFLAGS = @PIE_CFLAGS@
+ 
+diff -up ./rpc.ypxfrd/Makefile.am.relro ./rpc.ypxfrd/Makefile.am
+--- ./rpc.ypxfrd/Makefile.am.relro	2013-04-09 16:38:20.000000000 +0200
++++ ./rpc.ypxfrd/Makefile.am	2013-05-06 18:46:36.455683217 +0200
+@@ -22,6 +22,8 @@ sbin_PROGRAMS = rpc.ypxfrd
+ 
+ rpc_ypxfrd_SOURCES = ypxfrd.c ypxfrd_server.c ypxfrd_svc.c
+ 
++rpc_ypxfrd_LDFLAGS = -Wl,-z,relro,-z,now 
++
+ rpc_ypxfrd_LDADD = @PIE_LDFLAGS@ $(top_builddir)/lib/libyp.a @LIBDBM@ $(LIBSYSTEMD_DAEMON)
+ rpc_ypxfrd_CFLAGS = @PIE_CFLAGS@
+ 
+diff -up ./yppush/Makefile.am.relro ./yppush/Makefile.am
+--- ./yppush/Makefile.am.relro	2009-04-02 14:15:35.000000000 +0200
++++ ./yppush/Makefile.am	2013-05-06 18:46:36.456683217 +0200
+@@ -21,6 +21,8 @@ sbin_PROGRAMS = yppush
+ 
+ yppush_SOURCES = yppush.c
+ 
++yppush_LDFLAGS = -Wl,-z,relro,-z,now 
++
+ yppush_LDADD =  @PIE_LDFLAGS@ @LIBDBM@  $(top_builddir)/lib/libyp.a
+ yppush_CFLAGS = @PIE_CFLAGS@
+ 
+diff -up ./ypserv/Makefile.am.relro ./ypserv/Makefile.am
+--- ./ypserv/Makefile.am.relro	2013-04-09 16:38:20.000000000 +0200
++++ ./ypserv/Makefile.am	2013-05-06 18:46:36.457683217 +0200
+@@ -22,6 +22,8 @@ sbin_PROGRAMS = ypserv
+ 
+ ypserv_SOURCES = ypserv.c server.c ypserv_xdr.c reg_slp.c
+ 
++ypserv_LDFLAGS = -Wl,-z,relro,-z,now 
++
+ ypserv_LDADD =  @PIE_LDFLAGS@ $(top_builddir)/lib/libyp.a @LIBDBM@ @LIBSLP@ $(LIBSYSTEMD_DAEMON)
+ ypserv_CFLAGS = @PIE_CFLAGS@
+ 

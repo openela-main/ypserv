@@ -1,0 +1,12 @@
+diff -up ypserv-2.26/scripts/Makefile.am.path ypserv-2.26/scripts/Makefile.am
+--- ypserv-2.26/scripts/Makefile.am.path	2012-01-12 15:46:16.868219281 +0100
++++ ypserv-2.26/scripts/Makefile.am	2012-01-12 15:46:34.786218054 +0100
+@@ -8,7 +8,7 @@ CLEANFILES = *~ ${SCRIPTS}
+ 
+ EXTRA_DIST = ${MANS} ${XMLS}
+ 
+-varypdir = /var/yp
++varypdir = $(prefix)/../var/yp
+ 
+ man_MANS = pwupdate.8 ypinit.8
+ XMLS = pwupdate.8.xml ypinit.8.xml

@@ -1,0 +1,64 @@
+diff -up ypserv-2.32/rpc.ypxfrd/rpc.ypxfrd.8.manfix ypserv-2.32/rpc.ypxfrd/rpc.ypxfrd.8
+--- ypserv-2.32/rpc.ypxfrd/rpc.ypxfrd.8.manfix	2013-04-10 10:30:53.000000000 +0200
++++ ypserv-2.32/rpc.ypxfrd/rpc.ypxfrd.8	2013-11-18 09:47:11.982160697 +0100
+@@ -47,6 +47,16 @@ could be started by inetd\. But since it
+ \fBypserv\fR
+ from
+ \fB/etc/init\.d/ypxfrd\fR\.
++
++It is possible to pass
++\fBOPTIONS\fR
++to 
++\fBrpc.ypxfrd\fR
++using the environment variable 
++YPXFRD_ARGS
++and this variable can be set in 
++\fB/etc/sysconfig/network\&.\fR
++
+ .SH "OPTIONS"
+ .PP
+ \fB\-\-debug\fR
+@@ -114,6 +124,12 @@ Configuration file for options and acces
+ .RS 4
+ Configuration file for access rights
+ .RE
++.PP
++\fI/etc/sysconfig/network\fR
++.RS 4
++Setting additional arguments to
++\fBrpc\.ypxfrd\fR\&.
++.RE
+ .SH "SEE ALSO"
+ .PP
+ 
+diff -up ypserv-2.32/ypserv/ypserv.8.manfix ypserv-2.32/ypserv/ypserv.8
+--- ypserv-2.32/ypserv/ypserv.8.manfix	2013-11-06 13:56:25.000000000 +0100
++++ ypserv-2.32/ypserv/ypserv.8	2013-11-18 09:47:11.983160700 +0100
+@@ -65,6 +65,14 @@ may or may not be running on the same no
+ \fBypserv\fR
+ parses the file
+ /etc/ypserv\&.conf\&.
++It is also possible to pass
++\fBOPTIONS\fR
++to 
++\fBypserv\fR
++using the environment variable 
++YPSERV_ARGS
++and this variable can be set in 
++\fB/etc/sysconfig/network\&.\fR
+ .SH "OPTIONS"
+ .PP
+ \fB\-d\fR, \fB\-\-debug \fR[\fIpath\fR]
+@@ -151,6 +159,12 @@ configuration file\&.
+ which hosts are allowed to contact
+ \fBypserv\fR\&.
+ .RE
++.PP
++/etc/sysconfig/network
++.RS 4
++setting additional arguments to
++\fBypserv\fR\&.
++.RE
+ .SH "SEE ALSO"
+ .PP
+ \fBdomainname\fR(1),
